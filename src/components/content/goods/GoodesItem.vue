@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-    <img :src='goodsItem.show.img' alt="">
+  <div class="goods-item" @click="itemClick">
+    <img :src='showImg' alt="" @load="imageLoad">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="goods-price">￥{{goodsItem.price}}</span>
@@ -19,7 +19,20 @@
           return {}
         }
       }
-    }
+    },
+    computed: {
+      showImg() {
+        return this.goodsItem.image || this.goodsItem.show.img
+      }
+    },
+    methods: {
+      imageLoad() {
+        this.$bus.$emit('itemImageLoad')
+      },
+      itemClick() {
+        this.$router.push('/detail/' + this.goodsItem.iid)
+      }
+    },
   }
 </script>
 
@@ -60,6 +73,6 @@
     top: -1px;
     width: 14px;
     height: 14px;
-    background: url("~assets/img/common/collect.svg") 0 0/14px 14px;
+    background: url("~assets/img/common/collect.svg") 0 0/13px 13px;
   }
 </style>

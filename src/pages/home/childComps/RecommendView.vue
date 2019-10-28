@@ -36,6 +36,6 @@
   flex: 1
 }
 .recommend-item img {
-  width: 85%;
+  width: 80%;
 }
 </style>

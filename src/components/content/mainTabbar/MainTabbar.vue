@@ -1,6 +1,6 @@
 <template>
 
-  <tabbar>
+  <tabbar class="main-tabbar" >
 
     <tabbar-item path='/home' >
       <template #img>
@@ -68,6 +68,9 @@
 </script>
 
 <style scoped>
+  .main-tabbar {
+    z-index: 10
+  }
   .tabbar-item {
     flex: 1;
     text-align: center;

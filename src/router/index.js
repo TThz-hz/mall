@@ -16,19 +16,23 @@ const routes = [
   {
     path: '/category',
     name: 'Category',
-    component: () => import ('pages/category/category.vue')
+    component: () => import ('pages/category/Category.vue')
   },
   {
     path: '/shopcart',
     name: 'Shopcart',
-    component: () => import ('pages/shopcart/shopcart.vue')
+    component: () => import ('pages/shopcart/Shopcart.vue')
   },
   {
     path: '/profile',
     name: 'Profile',
-    component: () => import ('pages/profile/profile.vue')
+    component: () => import ('pages/profile/Profile.vue')
   },
-
+  {
+    path: '/detail/:iid',
+    name: 'Detail',
+    component: () => import ('../pages/detail/Detail.vue')
+  },
 ]
 
 
