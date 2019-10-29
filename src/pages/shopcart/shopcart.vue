@@ -51,6 +51,7 @@
 <style>
   #cart .scroll-wrapper {
     height: calc(100% - 138px);
+    background-color: #fcf9f2;
   }
 </style>
 

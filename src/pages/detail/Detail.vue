@@ -128,7 +128,9 @@ import {getDetail, getRecommend, Goods, GoodsParam, Shop} from 'network/detail'
         product.checked = true
 
         // this.$store.commit('addCarts', product)
-        this.$store.dispatch('addCarts', product)
+        this.$store.dispatch('addCarts', product).then(res => {
+          this.$toast.show(res)
+        })
       }
     },
   }
