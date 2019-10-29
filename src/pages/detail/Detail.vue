@@ -1,11 +1,11 @@
 <template>
-  <div class="detail">
+  <div id="detail">
     <!----------------------顶部NavBar------------------------->
     <detail-navbar class="detail-navbar" @titleclick="titleClick" ref="navbar"/>
 
-    <scroll class="detail-scroll" ref="_scroll" @scroll="positionY" :probetype="3">
+    <scroll ref="_scroll" @scroll="positionY" :probetype="3">
       <!---------------------顶部轮播图------------------------>
-      <detail-swiper class="detail-swiper" :topimages="topImages"/>
+      <detail-swiper :topimages="topImages"/>
       <!----------------------商品信息------------------------->
       <detail-base-info :goods-info="goodsInfo"/>
       <!----------------------店家信息------------------------->
@@ -23,7 +23,8 @@
 
     <!-- 回到顶部 -->
     <back-top @click.native="backTop" v-show="isShowBackTop" /> <!-- native-监听组件根元素的原生事件 -->
-    <detail-bottom-bar />
+    <!-- 底部工具栏 -->
+    <detail-bottom-bar @addtocart="addCart" />
   </div>
   
 </template>
@@ -115,29 +116,36 @@ import {getDetail, getRecommend, Goods, GoodsParam, Shop} from 'network/detail'
         this.themeTopYs.push(-this.$refs.comment.$el.offsetTop + 44);
         this.themeTopYs.push(-this.$refs.recommend.$el.offsetTop + 74);
         this.themeTopYs.push(-Number.MAX_VALUE);
+      },
+      addCart() {
+        const product = {};
+        product.image = this.topImages[0];
+        product.title = this.goodsInfo.title;
+        product.desc = this.goodsInfo.desc;
+        product.price = this.goodsInfo.nowPrice;
+        product.iid = this.iid;
+        product.count = 1;
+        product.checked = true
+
+        // this.$store.commit('addCarts', product)
+        this.$store.dispatch('addCarts', product)
       }
     },
   }
 </script>
 
+<style>
+  .detail-navbar .nav-bar {
+    background-color: #fff;
+    font-weight: normal;
+    color: var(--color-text)
+  }
+</style>
+
 <style scoped>
-  .detail {
+  #detail {
     height: 100vh;
     overflow: hidden;
-  }
-  .detail-navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-
-    z-index: 10;
-    background-color: #fff;
-  }
-  .detail-scroll {
-    height: calc(100% - 102px);
-}
-  .detail-swiper {
-    margin-top: 44px;
   }
   .goods-list-span {
     line-height: 20px;

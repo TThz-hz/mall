@@ -18,6 +18,9 @@
     height: 44px;
     line-height: 44px;
     text-align: center;
+    background-color: var(--color-tint);
+    color: #fff;
+    font-weight: 700;
   }
   .left,
   .right {

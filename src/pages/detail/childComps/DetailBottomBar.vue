@@ -22,11 +22,11 @@
 </template>
 
 <script>
-	export default {
-		name: "DetailBottomBar",
+  export default {
+    name: "DetailBottomBar",
     methods: {
       addToCart() {
-        this.$emit('addToCart')
+        this.$emit('addtocart')
       }
     }
 	}
@@ -34,11 +34,10 @@
 
 <style scoped>
   .bottom-bar {
-    height: 58px;
+    height: 49px;
     position: fixed;
     background-color: #fff;
-    left: 0;
-    right: 0;
+    width: 100%;
     bottom: 0;
     z-index: 11;
     display: flex;
@@ -55,19 +54,19 @@
   }
 
   .bar-left .text {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .bar-left .icon {
     display: block;
     width: 22px;
     height: 22px;
-    margin: 10px auto 3px;
+    margin: 8px auto 0;
     background: url("~assets/img/detail/detail_bottom.png") 0 0/100%;
   }
 
   .bar-left .service {
-    background-position:0 -54px;
+    background-position:0 -53px;
   }
 
   .bar-left .shop {
@@ -77,7 +76,7 @@
   .bar-right {
     font-size: 15px;
     color: #fff;
-    line-height: 58px;
+    line-height: 49px;
   }
 
   .bar-right .cart {

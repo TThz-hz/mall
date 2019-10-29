@@ -1,15 +1,14 @@
 <template>
   <div id="home">
     <!----------------NavBar start----------------->
-    <nav-bar class="home-nav">
+    <nav-bar>
       <template #center>
         <p>购物街</p>
       </template>
     </nav-bar>
     <!----------------NavBar end------------------->
 
-    <scroll class="home-scroll" ref="_scroll" @scroll="showBackTop" @pullingUp="loadMore" :probetype="3"
-      :pull-up-load="true">
+    <scroll ref="_scroll" @scroll="showBackTop" @pullingUp="loadMore" :probetype="3" :pull-up-load="true">
       <!----------------轮播图--------------------->
       <home-swiper :banners="banners" ref="hSwiper" @swiperImgLoad.once="swiperImagLoad" />
       <!----------------首页推荐------------------->
@@ -17,7 +16,7 @@
       <!----------------本周流行------------------->
       <feature-view />
       <!----------------首页导航------------------->
-      <tab-control class="home-tab-control" ref="tabControl" :titles="['流行', '新款', '精选']" @tabclick="tabClick" />
+      <tab-control ref="tabControl" :titles="['流行', '新款', '精选']" @tabclick="tabClick" />
       <!----------------商品列表------------------->
       <goods-list :goods="showGoods" />
     </scroll>
@@ -138,39 +137,15 @@
 
 <style scoped>
   #home {
-    /* position: relative; */
     height: 100vh;
     overflow: hidden;
   }
-
-  .home-nav {
-    background-color: var(--color-tint);
-    color: #fff;
-    font-weight: 700;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10
-  }
-
-  /* .home-tab-control {
-    position: sticky;
-    top: 44px;
-    position: fixed;
-    top: 44px;
-  } */
   .fixed {
     position: fixed;
     top: 44px;
     left: 0;
     right: 0;
     z-index: 10;
+    box-shadow: 0 -2px 1px #fff;
   }
-
-  .home-scroll {
-    margin-top: 44px;
-    height: calc(100% - 93px);
-    overflow: hidden;
-  }
-
 </style>

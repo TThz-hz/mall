@@ -59,5 +59,8 @@ import BScroll from 'better-scroll'
 </script>
 
 <style scoped>
-  
+  .scroll-wrapper {
+    height: calc(100% - 93px);
+    overflow: hidden;
+  }
 </style>
