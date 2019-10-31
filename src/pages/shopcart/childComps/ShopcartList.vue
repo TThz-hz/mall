@@ -1,5 +1,5 @@
 <template>
-<div id="null">
+<div >
   <div v-if="cartList.length">
       <div class="cart-info" v-for="(item, index) in cartList" :key="index">
         <div class="item-selector">
@@ -18,7 +18,7 @@
         </div>
       </div>
   </div>
-  <div v-else >
+  <div v-else id="null">
     <img class="null-img" src="http://i1.hdslb.com/bfs/archive/c6ac03e15f4b5efc7e2a268970ce660baab1ba21.jpg_320x200.jpg" alt="">
   </div>
 </div>
@@ -106,10 +106,16 @@
     margin-right: 20px
   }
 
+  #null {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 138px);
+  }
   .null-img {
     width: 160px;
     height: 100px;
-    position: fixed;
+
+    position: absolute;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
