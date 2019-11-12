@@ -1,7 +1,5 @@
 # mall
 
-### 此项目为自学Vue时跟着网课视频做的  网课地址:https://www.bilibili.com/video/av59594689
-
 ## Project setup
 ```
 npm install
